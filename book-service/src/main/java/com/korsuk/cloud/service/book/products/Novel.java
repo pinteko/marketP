@@ -1,6 +1,6 @@
 package com.korsuk.cloud.service.book.products;
 
-import com.korsuk.my_market.entities.StudentEntity;
+//import com.korsuk.my_market.entities.StudentEntity;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -30,11 +30,11 @@ public class Novel {
     @JoinColumn(name = "author_id")
     private Author author;
 
-    @ManyToMany
-    @JoinTable(name = "novel_readers",
-    joinColumns = @JoinColumn(name = "novel_id"),
-    inverseJoinColumns = @JoinColumn(name = "student_id"))
-    private List<StudentEntity> studentEntities;
+//    @ManyToMany
+//    @JoinTable(name = "novel_readers",
+//    joinColumns = @JoinColumn(name = "novel_id"),
+//    inverseJoinColumns = @JoinColumn(name = "student_id"))
+//    private List<StudentEntity> studentEntities;
 
     @Column(name = "rating")
     private Double rating;
