@@ -1,6 +1,6 @@
 package com.korsuk.cloud.service.book.converters;
 
-import com.korsuk.AuthorDto;
+import com.korsuk.dto.AuthorDto;
 import com.korsuk.cloud.service.book.products.Author;
 import org.springframework.stereotype.Component;
 

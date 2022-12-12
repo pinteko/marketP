@@ -1,5 +1,5 @@
 angular.module('market-front').controller('novelController', function ($scope, $http, $location, $localStorage) {
-    const contextPath = 'http://localhost:3000';
+    const contextPath = 'http://localhost:5555/book';
 
     let current_page = 1;
     $scope.count_pages = 2;

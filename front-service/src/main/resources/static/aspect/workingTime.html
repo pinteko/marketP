@@ -1,0 +1,15 @@
+<div class="container">
+    <h3>Statistic</h3>
+    <table class="table table-hover" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>Service</td>
+            <td>Working Time</td>
+        </tr>
+        <tbody>
+        <tr ng-repeat="s in aspectList">
+            <td>{{s.nameService}}</td>
+            <td>{{s.workingTime}} ms</td>
+
+        </tbody>
+    </table>
+</div>

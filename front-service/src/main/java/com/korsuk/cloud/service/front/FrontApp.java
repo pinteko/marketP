@@ -1,6 +1,6 @@
 package com.korsuk.cloud.service.front;
 
-import com.korsuk.NovelDto;
+import com.korsuk.dto.NovelDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,7 +1,7 @@
 package com.korsuk.cloud.service.book.services;
 
 
-import com.korsuk.NovelDto;
+import com.korsuk.dto.NovelDto;
 import com.korsuk.cloud.service.book.converters.NovelConverter;
 import com.korsuk.cloud.service.book.exceptions.ExistEntityException;
 import com.korsuk.cloud.service.book.exceptions.ResourceNotFoundException;
