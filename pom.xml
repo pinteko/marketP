@@ -7,7 +7,9 @@
 		<module>book-service</module>
 		<module>front-service</module>
 		<module>cloud-common</module>
-	</modules>
+        <module>discovery-service</module>
+        <module>gateway-service</module>
+    </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
