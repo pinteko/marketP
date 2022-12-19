@@ -1,6 +1,6 @@
-package com.korsuk.cloud.service.cart.repositories;
+package com.korsuk.cloud.service.book.repository;
 
-import com.korsuk.cloud.service.cart.entities.Order;
+import com.korsuk.cloud.service.book.entities.Order;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;

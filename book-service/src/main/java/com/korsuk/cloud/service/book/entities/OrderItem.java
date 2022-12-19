@@ -1,5 +1,6 @@
-package com.korsuk.cloud.service.cart.entities;
+package com.korsuk.cloud.service.book.entities;
 
+import com.korsuk.cloud.service.book.products.Novel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;

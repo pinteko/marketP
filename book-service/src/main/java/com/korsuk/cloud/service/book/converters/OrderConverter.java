@@ -1,8 +1,8 @@
-package com.korsuk.cloud.service.cart.converters;
+package com.korsuk.cloud.service.book.converters;
 
 
-import com.korsuk.cloud.service.cart.entities.Order;
-import com.korsuk.dto.OrderDto;
+import com.korsuk.cloud.service.book.entities.Order;
+import com.korsuk.core.OrderDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 

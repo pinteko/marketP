@@ -1,6 +1,8 @@
 package com.korsuk.cloud.service.cart.controllers;
 
-import com.korsuk.cloud.service.cart.myCart.CartNotEntity;
+import com.korsuk.cart.CartDto;
+import com.korsuk.cloud.service.cart.converters.CartConverter;
+import com.korsuk.cloud.service.cart.models.Cart;
 import com.korsuk.cloud.service.cart.service.CartService;
 import com.korsuk.dto.StringResponse;
 import lombok.RequiredArgsConstructor;
@@ -15,6 +17,7 @@ import org.springframework.web.bind.annotation.*;
 public class CartController {
 
     private final CartService cartService;
+    private final CartConverter cartConverter;
 
 
 //    @GetMapping()
@@ -23,8 +26,8 @@ public class CartController {
 //    }
 
     @GetMapping("/{uuid}")
-    public CartNotEntity getCurrentCart(@RequestHeader(required = false) String username, @PathVariable String uuid) {
-        return cartService.getCurrentCart(getCurrentCartUuid(username, uuid));
+    public CartDto getCurrentCart(@RequestHeader(required = false) String username, @PathVariable String uuid) {
+        return cartConverter.modelToDto(cartService.getCurrentCart(getCurrentCartUuid(username, uuid)));
     }
 
     @GetMapping("/generate")
@@ -53,7 +56,7 @@ public class CartController {
     }
 
     @GetMapping("/{uuid}/merge")
-    public void merge(@RequestHeader(required = false) String username, @PathVariable String uuid) {
+    public void merge(@RequestHeader String username, @PathVariable String uuid) {
         cartService.merge(
                 getCurrentCartUuid(username, null),
                 getCurrentCartUuid(null, uuid)

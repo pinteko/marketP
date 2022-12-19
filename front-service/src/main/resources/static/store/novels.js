@@ -48,14 +48,14 @@ angular.module('market-front').controller('novelController', function ($scope, $
         console.log(current_page);
     };
 
-    // $scope.addNovelInCart = function (novelId){
-    //     $http({
-    //         url: contextPath + 'cart/' + $localStorage.springWebGuestCartId + '/add/' + novelId,
-    //         method: 'GET'
-    //     }).then(function (response){
-    //         $scope.loadCart();
-    //     });
-    // };
+    $scope.addNovelInCart = function (novelId){
+        $http({
+            url: 'http://localhost:5555/cart/' + $localStorage.springWebGuestCartId + '/add/' + novelId,
+            method: 'GET'
+        }).then(function (response){
+            $scope.loadCart();
+        });
+    };
 
     $scope.changeRating = function (novel_id, delta){
         $http({

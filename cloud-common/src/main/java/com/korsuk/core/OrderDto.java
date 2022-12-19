@@ -1,5 +1,6 @@
-package com.korsuk.dto;
+package com.korsuk.core;
 
+import com.korsuk.cart.CartItemDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

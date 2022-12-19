@@ -1,9 +1,7 @@
-package com.korsuk.cloud.service.cart.myCart;
+package com.korsuk.cloud.service.cart.models;
 
 
-import com.korsuk.cloud.service.cart.entities.Novel;
-import com.korsuk.dto.NovelDto;
-import com.korsuk.dto.OrderItemDto;
+import com.korsuk.core.NovelDto;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 
@@ -13,27 +11,27 @@ import java.util.List;
 
 @Data
 @Slf4j
-public class CartNotEntity {
+public class Cart {
 
-   private List<OrderItemDto> novelsInCart;
+   private List<CartItem> novelsInCart;
    private double totalPrice;
 
-   public CartNotEntity() {
+   public Cart() {
       this.novelsInCart = new ArrayList<>();
    }
 
 
 
-   public void addInCart(NovelDto novel) {
-      if (isInCart(novel.getId())) {
+   public void addInCart(NovelDto novelDto) {
+      if (isInCart(novelDto.getId())) {
          return;
       }
-      novelsInCart.add(new OrderItemDto(novel));
+      novelsInCart.add(new CartItem(novelDto));
       recalculate();
    }
 
    public boolean isInCart(Long id) {
-      for (OrderItemDto o : novelsInCart) {
+      for (CartItem o : novelsInCart) {
          if (o.getNovelId().equals(id)) {
             o.changeQuantity(1);
             recalculate();
@@ -44,9 +42,9 @@ public class CartNotEntity {
    }
 
    public void decrement(Long id) {
-      Iterator<OrderItemDto> iter = novelsInCart.iterator();
+      Iterator<CartItem> iter = novelsInCart.iterator();
       while (iter.hasNext()) {
-         OrderItemDto o = iter.next();
+         CartItem o = iter.next();
          if (o.getNovelId().equals(id)) {
             o.changeQuantity(-1);
             if (o.getQuantity() <= 0) {
@@ -65,7 +63,7 @@ public class CartNotEntity {
 
    private void recalculate() {
       totalPrice = 0;
-      for (OrderItemDto o : novelsInCart) {
+      for (CartItem o : novelsInCart) {
          totalPrice += o.getPrice();
       }
    }
@@ -75,10 +73,10 @@ public class CartNotEntity {
       totalPrice = 0;
    }
 
-   public void merge(CartNotEntity another) {
-      for (OrderItemDto anotherItem : another.novelsInCart) {
+   public void merge(Cart another) {
+      for (CartItem anotherItem : another.novelsInCart) {
          boolean merged = false;
-         for (OrderItemDto myItem : novelsInCart) {
+         for (CartItem myItem : novelsInCart) {
             if (myItem.getNovelId().equals(anotherItem.getNovelId())) {
                myItem.changeQuantity(anotherItem.getQuantity());
                merged = true;

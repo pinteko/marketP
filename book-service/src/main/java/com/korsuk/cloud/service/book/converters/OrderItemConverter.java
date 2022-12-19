@@ -1,10 +1,9 @@
-package com.korsuk.cloud.service.cart.converters;
+package com.korsuk.cloud.service.book.converters;
 
-
-
-import com.korsuk.cloud.service.cart.entities.OrderItem;
-import com.korsuk.cloud.service.cart.service.NovelService;
-import com.korsuk.dto.OrderItemDto;
+import com.korsuk.cart.CartItemDto;
+import com.korsuk.cloud.service.book.entities.OrderItem;
+import com.korsuk.cloud.service.book.services.NovelService;
+import com.korsuk.core.OrderItemDto;
 import com.korsuk.exceptions.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -16,7 +15,9 @@ public class OrderItemConverter {
     private final NovelService novelService;
     private final NovelConverter novelConverter;
 
-    public OrderItem dtoToEntity(OrderItemDto orderItemDto) {
+    private final OrderConverter orderConverter;
+
+    public OrderItem dtoToEntity(CartItemDto orderItemDto) {
         return new OrderItem(
                 novelService.getNovelById(orderItemDto.getNovelId()).orElseThrow(() -> new ResourceNotFoundException("Novel not found")),
                 orderItemDto.getQuantity(),
@@ -26,6 +27,12 @@ public class OrderItemConverter {
     }
 
     public OrderItemDto entityToDto(OrderItem orderItem) {
-        return new OrderItemDto(novelConverter.entityToDto(orderItem.getNovel()));
+        return new OrderItemDto(
+                orderItem.getId(),
+                novelConverter.entityToDto(orderItem.getNovel()),
+                orderConverter.entityToDto(orderItem.getOrder()),
+                orderItem.getQuantity(),
+                orderItem.getPricePerProduct(),
+                orderItem.getPrice());
     }
 }

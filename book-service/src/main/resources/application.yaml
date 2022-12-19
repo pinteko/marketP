@@ -1,10 +1,13 @@
 server:
   port: 8189
   servlet:
-    context-path: /pintekoMarket
+    context-path: /pinteko-market-book
 utils:
   cart:
     prefix: SPRING_WEB_
+integrations:
+  cart-service:
+    url: http://localhost:5555/cart
 spring:
   application:
     name: book-service

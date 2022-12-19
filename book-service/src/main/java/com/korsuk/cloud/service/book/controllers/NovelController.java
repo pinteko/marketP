@@ -1,6 +1,6 @@
 package com.korsuk.cloud.service.book.controllers;
 
-import com.korsuk.dto.NovelDto;
+import com.korsuk.core.NovelDto;
 import com.korsuk.cloud.service.book.exceptions.ResourceNotFoundException;
 import com.korsuk.cloud.service.book.services.AuthorService;
 import com.korsuk.cloud.service.book.services.NovelService;

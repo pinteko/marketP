@@ -52,7 +52,7 @@ angular.module('market-front').controller('cartController', function ($scope, $r
 
     $scope.createOrder = function (){
         $http({
-            url: contextPath + 'orders',
+            url: 'http://localhost:5555/book/orders',
             method: 'POST',
             data: $scope.orderDetails
         }).then(function (response){

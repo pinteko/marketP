@@ -1,7 +1,7 @@
 package com.korsuk.cloud.service.book.converters;
 
 
-import com.korsuk.dto.NovelDto;
+import com.korsuk.core.NovelDto;
 import com.korsuk.cloud.service.book.products.Novel;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

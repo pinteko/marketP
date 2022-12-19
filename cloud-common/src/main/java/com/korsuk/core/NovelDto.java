@@ -1,4 +1,4 @@
-package com.korsuk.dto;
+package com.korsuk.core;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

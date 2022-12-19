@@ -1,4 +1,4 @@
-package com.korsuk.cloud.service.cart.entities;
+package com.korsuk.cloud.service.book.entities;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package com.korsuk;
+package com.korsuk.cloud.service.cart;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
