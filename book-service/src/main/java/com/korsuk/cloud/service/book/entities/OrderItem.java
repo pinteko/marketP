@@ -45,8 +45,9 @@ public class OrderItem {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    public OrderItem(Novel novel, Integer quantity, Double pricePerProduct, Double price) {
+    public OrderItem(Novel novel, Order order, Integer quantity, Double pricePerProduct, Double price) {
         this.novel = novel;
+        this.order = order;
         this.quantity = quantity;
         this.pricePerProduct = pricePerProduct;
         this.price = price;

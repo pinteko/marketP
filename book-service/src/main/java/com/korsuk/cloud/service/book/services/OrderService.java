@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -23,7 +24,6 @@ public class OrderService {
     private final OrderRepository orderRepository;
     private final CartServiceIntegration cartServiceIntegration;
     private final OrderConverter orderConverter;
-
     private final NovelService novelService;
 
     @Transactional
@@ -56,5 +56,9 @@ public class OrderService {
 
     public List<OrderDto> findOrdersByUsername(String username) {
         return orderRepository.findAllByUsername(username).stream().map(orderConverter::entityToDto).collect(Collectors.toList());
+    }
+
+    public Optional<Order> findOrderById(Long id) {
+        return orderRepository.findOrderById(id);
     }
 }

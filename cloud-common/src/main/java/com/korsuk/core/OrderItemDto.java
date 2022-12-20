@@ -13,7 +13,7 @@ public class OrderItemDto {
 
     private NovelDto novelDto;
 
-    private OrderDto orderDto;
+    private Long orderId;
 
     private Integer quantity;
 
