@@ -7,12 +7,16 @@ import java.util.List;
 
 public class CartDto {
 
-    private final List<CartItemDto> novelsInCart;
-    private final double totalPrice;
+    private List<CartItemDto> novelsInCart;
+    private double totalPrice;
 
     public CartDto(List<CartItemDto> novelsInCart, double totalPrice) {
         this.novelsInCart = novelsInCart;
         this.totalPrice = totalPrice;
+    }
+
+    public CartDto() {
+
     }
 
     public List<CartItemDto> getNovelsInCart() {

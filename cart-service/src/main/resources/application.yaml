@@ -11,6 +11,7 @@ spring:
 integrations:
   book-service:
     url: http://localhost:5555/book
+#    url: http://localhost:8189/pinteko-market-book  прямой url для тестирования
 #  datasource:
 #    url: jdbc:postgresql://localhost:5432/postgres
 #    username: postgres
