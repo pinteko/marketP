@@ -1,0 +1,43 @@
+<div class="container">
+    <h3>Books in cart</h3>
+    <table class="table table-hover" cellpadding="0" cellspacing="0">
+        <tr>
+            <td>ID</td>
+            <td>Title</td>
+            <td>Author</td>
+            <td type="number">Price</td>
+            <td>Count</td>
+            <td type="number">Total</td>
+            <td type="number">Rating</td>
+            <td>Do</td>
+        </tr>
+        <tbody>
+        <tr ng-repeat="s in cart.novelsInCart">
+            <td>{{s.novelId}}</td>
+            <td>{{s.novelTitle}}</td>
+            <td>{{s.authorDto.name}} {{s.authorDto.surname}}</td>
+            <td>{{s.pricePerProduct}}</td>
+            <td>
+                <button class="btn btn-danger" ng-click="deleteNovel(s.novelId)">-</button>
+                {{s.quantity}}
+                <button class="btn btn-primary" ng-click="addNovel(s.novelId)">+</button>
+            </td>
+            <td>{{s.price}}</td>
+            <td>{{s.rating}}</td>
+            <td><button class="btn btn-danger" ng-click="deleteNovel(s.novelId)">-</button></td>
+        </tbody>
+    </table>
+    <br>
+    <p>
+        <button class="btn btn-primary" ng-click="clearCart()">Clear cart</button>
+    </p>
+    <br>
+    <h3>Order details</h3>
+    <form novalidate ng-submit="createOrder()">
+        <input class="form-control" type="text" placeholder="recipient's phone number" ng-model="orderDetails.phone">
+        <p></p>
+        <input class="form-control" type="text" placeholder="delivery address" ng-model="orderDetails.address">
+        <p></p>
+        <button type="submit" class="btn btn-primary">Make an order</button>
+    </form>
+</div>

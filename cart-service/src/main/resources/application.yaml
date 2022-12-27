@@ -1,0 +1,33 @@
+server:
+  port: 8190
+  servlet:
+    context-path: /pinteko-market-cart
+utils:
+  cart:
+    prefix: SPRING_WEB_
+spring:
+  application:
+    name: cart-service
+integrations:
+  book-service:
+    url: http://localhost:5555/book
+#    url: http://localhost:8189/pinteko-market-book  прямой url для тестирования
+#  datasource:
+#    url: jdbc:postgresql://localhost:5432/postgres
+#    username: postgres
+#    password: berbedos31
+#    driver-class-name: org.postgresql.Driver
+#  jpa:
+#      database: postgresql
+#      database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+#      show-sql: true
+#  flyway:
+#      baseline-on-migrate: true
+
+#eureka:
+#  instance:
+#    hostname: localhost
+#  client:
+#    serviceUrl:
+#      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
+#      fetchRegistry: false

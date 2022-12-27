@@ -1,6 +1,8 @@
 package com.korsuk.cloud.service.book.controllers;
 
-import com.korsuk.NovelDto;
+import com.korsuk.cloud.service.book.products.Author;
+import com.korsuk.cloud.service.book.products.Novel;
+import com.korsuk.core.NovelDto;
 import com.korsuk.cloud.service.book.exceptions.ResourceNotFoundException;
 import com.korsuk.cloud.service.book.services.AuthorService;
 import com.korsuk.cloud.service.book.services.NovelService;
@@ -15,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 public class NovelController {
 
     private final NovelService novelService;
-    private final AuthorService authorService;
+
 
 
 
@@ -58,7 +60,23 @@ public class NovelController {
     }
 
 
+    @PostMapping()
+    public void addNovel(@RequestParam(name = "title", required = false) String title,
+                                    @RequestParam(name = "authorName", required = false) String authorName,
+                                    @RequestParam(name = "authorSurname", required = false) String authorSurname,
+                                    @RequestParam(name = "rating", required = false) Double rating,
+                                    @RequestParam(name = "price", required = false) Double price) {
 
+        Author author = new Author();
+        author.setName(authorName);
+        author.setSurname(authorSurname);
+        Novel novel = new Novel();
+        novel.setTitle(title);
+        novel.setAuthor(author);
+        novel.setRating(rating);
+        novel.setPrice(price);
+        novelService.save(novel);
+    }
 
 
 
