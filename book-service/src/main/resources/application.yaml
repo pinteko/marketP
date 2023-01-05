@@ -9,8 +9,6 @@ integrations:
   cart-service:
     url: http://localhost:5555/cart
 spring:
-  application:
-    name: book-service
   datasource:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
@@ -22,11 +20,3 @@ spring:
       show-sql: true
   flyway:
       baseline-on-migrate: true
-
-#eureka:
-#  instance:
-#    hostname: localhost
-#  client:
-#    serviceUrl:
-#      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
-#      fetchRegistry: false

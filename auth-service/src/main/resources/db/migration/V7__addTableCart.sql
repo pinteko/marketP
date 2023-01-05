@@ -1,0 +1,1 @@
+create table if not exists carts(id bigserial primary key, novel_id integer references novels(id), purchase_date timestamp);

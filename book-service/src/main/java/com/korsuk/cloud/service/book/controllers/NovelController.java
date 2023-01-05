@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/novels")
-@CrossOrigin("*")
 public class NovelController {
 
     private final NovelService novelService;

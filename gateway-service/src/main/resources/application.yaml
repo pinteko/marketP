@@ -7,14 +7,6 @@
 server:
   port: 5555
 
-#eureka:
-#  instance:
-#    hostname: localhost
-#  client:
-#    serviceUrl:
-#      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
-#      fetchRegistry: true
-
 spring:
   application:
     name: gateway-service
@@ -23,11 +15,13 @@ spring:
       globalcors:
         corsConfigurations:
           '[/**]':
-          allowedOrigins: "http://localhost:3000"
-          allowMethods:
-            -GET
-            -POST
-          allowedHeaders: "*"
+            allowedOrigins: "http://localhost:3000"
+            allowedMethods:
+              -GET
+              -POST
+              -PUT
+              -DELETE
+            allowedHeaders: "*"
       routes:
         - id: book-service
           uri: http://localhost:8189/
