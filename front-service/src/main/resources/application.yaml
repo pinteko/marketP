@@ -2,24 +2,3 @@ server:
   port: 3000
   servlet:
     context-path: /front
-
-spring:
-  application:
-    name: front-service
-#  cloud:
-#    gateway:
-#      routes:
-#
-#        - id: book-service
-#          uri: lb://book-service
-#          predicates:
-#            - Path=/book-service/**
-#          filters:
-#            - StripPrefix=1
-#eureka:
-#  instance:
-#    hostname: localhost
-#  client:
-#    serviceUrl:
-#      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
-#      fetchRegistry: false

@@ -5,9 +5,6 @@ server:
 utils:
   cart:
     prefix: SPRING_WEB_
-spring:
-  application:
-    name: cart-service
 integrations:
   book-service:
     url: http://localhost:5555/book

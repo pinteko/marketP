@@ -1,0 +1,1 @@
+ALTER TABLE carts ALTER COLUMN purchase_date TYPE timestamp(0);
