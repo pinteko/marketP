@@ -1,6 +1,7 @@
 package com.korsuk.cloud.service.cart.service;
 
 
+import com.korsuk.cloud.service.cart.exceptions.NovelNotFoundException;
 import com.korsuk.cloud.service.cart.integrations.NovelsServiceIntegration;
 import com.korsuk.cloud.service.cart.models.Cart;
 import com.korsuk.core.NovelDto;
@@ -8,6 +9,7 @@ import com.korsuk.exceptions.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
@@ -37,7 +39,7 @@ public class CartService {
     }
 
     public void addNovelInCart(String cartKey, Long novelId) {
-        NovelDto novelDto = novelsServiceIntegration.findById(novelId).orElseThrow(() -> new ResourceNotFoundException("Novel not found with id:" + novelId));
+        NovelDto novelDto = novelsServiceIntegration.findById(novelId).orElseThrow(() -> new NovelNotFoundException("Novel not found with id:" + novelId));
         execute(cartKey, c -> {
             c.addInCart(novelDto);
         });

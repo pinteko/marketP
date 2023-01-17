@@ -1,20 +1,30 @@
 package com.korsuk.dto;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
-@Data
-@NoArgsConstructor
 public class AspectResponse {
     private String nameService;
     private long workingTime;
 
+    public AspectResponse() {
+    }
 
-    public AspectResponse(String nameService) {
+    public AspectResponse(String nameService, long workingTime) {
+        this.nameService = nameService;
+        this.workingTime = workingTime;
+    }
+
+    public String getNameService() {
+        return nameService;
+    }
+
+    public void setNameService(String nameService) {
         this.nameService = nameService;
     }
 
-    public void setWorkingTime(long time) {
-        workingTime += time;
+    public long getWorkingTime() {
+        return workingTime;
+    }
+
+    public void setWorkingTime(long workingTime) {
+        this.workingTime = workingTime;
     }
 }

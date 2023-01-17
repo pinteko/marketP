@@ -8,6 +8,10 @@ utils:
 integrations:
   book-service:
     url: http://localhost:5555/book
+    timeout:
+      connect: 2000
+      read: 10000
+      write: 2000
 #    url: http://localhost:8189/pinteko-market-book  прямой url для тестирования
 #  datasource:
 #    url: jdbc:postgresql://localhost:5432/postgres

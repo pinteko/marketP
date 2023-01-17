@@ -1,0 +1,10 @@
+update novels set rating = 4.88, price = 12.45 where id = 1;
+update novels set rating = 3.67, price = 9.12 where id = 2;
+update novels set rating = 4.47, price = 10.67 where id = 3;
+update novels set rating = 4.12, price = 8.44 where id = 4;
+update novels set rating = 4.99, price = 12.01 where id = 5;
+update novels set rating = 3.89, price = 7.99 where id = 6;
+update novels set rating = 4.44, price = 11.01 where id = 7;
+update novels set rating = 4.61, price = 9.50 where id = 8;
+update novels set rating = 4.04, price = 11.67 where id = 9;
+update novels set rating = 3.99, price = 10.45 where id = 10;

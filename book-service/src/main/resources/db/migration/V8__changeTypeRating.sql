@@ -1,0 +1,1 @@
+ALTER TABLE novels ALTER COLUMN rating TYPE numeric(10,2);

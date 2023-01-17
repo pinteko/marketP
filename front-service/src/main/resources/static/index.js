@@ -54,6 +54,15 @@
                 .then(function successCallback(response) {
                     $localStorage.springWebGuestCartId = response.data.value;
                 });
+            // $http({
+            //     method: 'GET',
+            //     url: 'http://localhost:5555/cart/api/v1/cart/generate',
+            //     dataType: 'jsonp',
+            //     headers: {'Access-Control-Allow-Origin': 'http://localhost:3000'}
+            // }).
+            //     then(function successCallback(response) {
+            //     $localStorage.springWebGuestCartId = response.data.value;
+            // });
         }
     }
 })();
