@@ -3,9 +3,8 @@ package com.korsuk.cloud.service.book.controllers;
 import com.korsuk.cloud.service.book.products.Author;
 import com.korsuk.cloud.service.book.products.Novel;
 import com.korsuk.core.NovelDto;
-import com.korsuk.cloud.service.book.exceptions.ResourceNotFoundException;
-import com.korsuk.cloud.service.book.services.AuthorService;
 import com.korsuk.cloud.service.book.services.NovelService;
+import com.korsuk.exceptions.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/api/v1/novels")
-@CrossOrigin("*")
 public class NovelController {
 
     private final NovelService novelService;

@@ -1,13 +1,9 @@
 package com.korsuk.core;
 
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import java.util.Objects;
 
 
-@Data
-@NoArgsConstructor
 public class NovelDto {
 
     private Long id;
@@ -28,6 +24,53 @@ public class NovelDto {
         this.author = authorDto;
         this.rating = rating;
         this.price = price;
+    }
+
+    public NovelDto() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public AuthorDto getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(AuthorDto author) {
+        this.author = author;
+    }
+
+    public Double getRating() {
+        return rating;
+    }
+
+    public void setRating(Double rating) {
+        this.rating = rating;
+    }
+
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+
+    public Integer getCount() {
+        return count;
+    }
+
+    public void setCount(Integer count) {
+        this.count = count;
     }
 
     @Override

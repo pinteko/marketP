@@ -2,9 +2,6 @@ package com.korsuk.cart;
 
 import com.korsuk.core.AuthorDto;
 import com.korsuk.core.NovelDto;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 public class CartItemDto {
     private final Long novelId;

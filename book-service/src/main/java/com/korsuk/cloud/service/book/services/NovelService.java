@@ -3,12 +3,12 @@ package com.korsuk.cloud.service.book.services;
 
 import com.korsuk.core.NovelDto;
 import com.korsuk.cloud.service.book.converters.NovelConverter;
-import com.korsuk.cloud.service.book.exceptions.ExistEntityException;
-import com.korsuk.cloud.service.book.exceptions.ResourceNotFoundException;
 import com.korsuk.cloud.service.book.products.Author;
 import com.korsuk.cloud.service.book.products.Novel;
 import com.korsuk.cloud.service.book.repository.NovelRepository;
 import com.korsuk.cloud.service.book.repository.specification.NovelSpecification;
+import com.korsuk.exceptions.ExistEntityException;
+import com.korsuk.exceptions.ResourceNotFoundException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
