@@ -2,6 +2,7 @@ package com.korsuk.cloud.service.book.controllers;
 
 import com.korsuk.cloud.service.book.products.Author;
 import com.korsuk.cloud.service.book.products.Novel;
+import com.korsuk.cloud.service.book.services.HashNovelService;
 import com.korsuk.core.NovelDto;
 import com.korsuk.cloud.service.book.services.NovelService;
 import com.korsuk.exceptions.ResourceNotFoundException;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 public class NovelController {
 
     private final NovelService novelService;
+    private final HashNovelService hashNovelService;
 
 
 
@@ -30,6 +32,9 @@ public class NovelController {
                                     @RequestParam(name = "surname", required = false ) String surname) {
 //        return novelService.getAllNovels();
         if (page < 1) {page = 1;}
+
+        if (isOnlyPage(minRating, maxRating, minPrice, maxPrice, titlePart, name, surname))
+            return hashNovelService.findNovels(page);
 
         return novelService.findNovels(page, minRating, maxRating, minPrice, maxPrice, titlePart, name, surname);
 
@@ -74,6 +79,11 @@ public class NovelController {
         novel.setRating(rating);
         novel.setPrice(price);
         novelService.save(novel);
+    }
+
+    private boolean isOnlyPage(Double minRating, Double maxRating, Double minPrice, Double maxPrice, String titlePart, String name, String surname) {
+        return minRating == null && maxRating == null && minPrice == null && maxPrice == null &&
+                titlePart == null && name == null && surname == null;
     }
 
 
