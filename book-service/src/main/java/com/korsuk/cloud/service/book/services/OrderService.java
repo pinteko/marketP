@@ -39,14 +39,21 @@ public class OrderService {
 
         List<OrderItem> items = currentCart.getNovelsInCart().stream()
                 .map(cartItemDto -> {
-                    OrderItem orderItem = new OrderItem();
-                    orderItem.setOrder(order);
-                    orderItem.setQuantity(cartItemDto.getQuantity());
-                    orderItem.setPricePerProduct(cartItemDto.getPricePerProduct());
-                    orderItem.setPrice(cartItemDto.getPrice());
-                    orderItem.setNovel(novelService.getNovelById(cartItemDto.getNovelId())
-                            .orElseThrow(() -> new ResourceNotFoundException("Novel not found with id: " + cartItemDto.getNovelId())));
-                    return orderItem;
+                   return OrderItem.builder()
+                            .order(order)
+                            .quantity(cartItemDto.getQuantity())
+                            .pricePerProduct(cartItemDto.getPricePerProduct())
+                            .price(cartItemDto.getPrice())
+                            .novel(novelService.getNovelById(cartItemDto.getNovelId()).orElseThrow(() -> new ResourceNotFoundException("Novel not found with id: " + cartItemDto.getNovelId())))
+                            .build();
+//                    OrderItem orderItem = new OrderItem();
+//                    orderItem.setOrder(order);
+//                    orderItem.setQuantity(cartItemDto.getQuantity());
+//                    orderItem.setPricePerProduct(cartItemDto.getPricePerProduct());
+//                    orderItem.setPrice(cartItemDto.getPrice());
+//                    orderItem.setNovel(novelService.getNovelById(cartItemDto.getNovelId())
+//                            .orElseThrow(() -> new ResourceNotFoundException("Novel not found with id: " + cartItemDto.getNovelId())));
+//                    return orderItem;
                 })
                 .collect(Collectors.toList());
         order.setItems(items);

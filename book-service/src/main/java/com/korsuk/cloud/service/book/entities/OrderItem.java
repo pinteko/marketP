@@ -1,6 +1,8 @@
 package com.korsuk.cloud.service.book.entities;
 
 import com.korsuk.cloud.service.book.products.Novel;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.CreationTimestamp;
@@ -13,6 +15,8 @@ import java.time.LocalDateTime;
 @Table(name = "order_items")
 @Data
 @NoArgsConstructor
+@Builder
+@AllArgsConstructor
 public class OrderItem {
 
     @Id
@@ -45,11 +49,4 @@ public class OrderItem {
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    public OrderItem(Novel novel, Order order, Integer quantity, Double pricePerProduct, Double price) {
-        this.novel = novel;
-        this.order = order;
-        this.quantity = quantity;
-        this.pricePerProduct = pricePerProduct;
-        this.price = price;
-    }
 }
