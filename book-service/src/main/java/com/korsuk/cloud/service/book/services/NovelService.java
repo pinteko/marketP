@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 @Service
 @RequiredArgsConstructor
 @Slf4j
-public class NovelService {
+public class NovelService implements NovelServiceInterface{
     private final NovelRepository novelRepository;
     private final AuthorService authorService;
 
@@ -36,8 +36,14 @@ public class NovelService {
        return novels.stream().map(novelConverter::entityToDto).collect(Collectors.toList());
     }
 
+    @Override
+    public Page<NovelDto> findNovels(Integer p) {
+        Page<Novel> pageNovels = novelRepository.findAll(PageRequest.of(p - 1, 5));
+        return pageNovels.map(this::convertToNovelDto);
+    }
+
     public Page<NovelDto> findNovels(Integer p, Double minRating, Double maxRating,
-                                  Double minPrice, Double maxPrice, String titlePart, String name, String surname) {
+                                     Double minPrice, Double maxPrice, String titlePart, String name, String surname) {
 
         List<Author> authors = new ArrayList<>();
         log.info(name + "author name");
