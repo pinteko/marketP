@@ -17,9 +17,7 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -30,6 +28,8 @@ public class NovelService implements NovelServiceInterface{
     private final AuthorService authorService;
 
     private final NovelConverter novelConverter;
+
+    private Map<Long, NovelDto> novelsMap = new HashMap<>();
 
     public List<NovelDto> getAllNovels() {
        List<Novel> novels = novelRepository.findAll();
@@ -85,8 +85,13 @@ public class NovelService implements NovelServiceInterface{
     }
 
     public NovelDto getNovelByIdDto(Long id) {
+        NovelDto hashNovel = novelsMap.get(id);
+        if (hashNovel != null)
+            return hashNovel;
        Novel novel = novelRepository.findNovelById(id).orElseThrow(() -> new ResourceNotFoundException("Novel not found with id: " + id));
-        return novelConverter.entityToDto(novel);
+       NovelDto novelDto = novelConverter.entityToDto(novel);
+       novelsMap.put(id, novelDto);
+        return novelDto;
     }
 
     public Optional<Novel> getNovelById(Long id) {
